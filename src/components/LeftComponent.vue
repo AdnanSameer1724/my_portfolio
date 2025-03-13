@@ -22,7 +22,7 @@
       <span>Bengaluru, KA, India</span>
     </div>
 
-    <ul class="flex flex-row space-x-6">
+    <ul class="flex flex-row space-x-6 mb-[30px]">
       <li>
         <a href="#" target="_blank" class="flex items-center justify-center w-10 h-10 border-[#999999] rounded-full">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -48,10 +48,28 @@
         </a>
       </li>
     </ul>
+
+    <a
+      href="mailto:adnansameer1724@gmail.com"
+      class="flex items-center justify-center w-full py-4 text-lg text-[#000000] hover:text-[#28E98C] bg-[#28E98C] hover:bg-[#000000] transition duration-300 rounded-4xl"
+    >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24" 
+      width="24" 
+      height="24" 
+      class="mr-2"
+      fill="currentColor"
+    >
+      <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-1.4 2L12 10.6 5.4 6h13.2zM4 18V7.4l8 5.6 8-5.6V18H4z"/>
+    </svg>
+      Hire Me
+  </a>
   </aside>
 </template>
 
 <script setup>
   import leetcode from '../assets/icons/leetcode.svg'
   import freelancer from '../assets/icons/freelancer.svg'
+  import email from '../assets/icons/email.svg'
 </script>
