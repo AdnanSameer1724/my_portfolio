@@ -1,6 +1,6 @@
 <template>
   <aside
-    class="fixed left-10 bottom-10 top-10 w-1/5 bg-[#1f1f1f] border border-[#565656] rounded-2xl p-5 font-sans"
+    class="fixed left-7 bottom-20 top-10 w-1/5 bg-[#1f1f1f] border border-[#565656] rounded-2xl p-5 font-sans"
   >
     <h1 class="text-2xl text-white font-bold mb-[5px]">Adnan</h1>
     <h1 class="text-2xl text-white font-bold mb-[30px]">Sameer Z</h1>

@@ -4,7 +4,7 @@
             <img :src="Button" alt="Menu" class="w-6 h-6 icon-gray" />
         </button>
     </div>
-    <aside v-if="isSideBarVisible" class="fixed right-10 bottom-45 top-40 w-1/33 bg-[#1f1f1f] border border-[#565656] px-2 py-5 rounded-4xl mt-2 flex flex-col items-center">
+    <aside v-if="isSideBarVisible" class="fixed right-10 bottom-75 top-40 w-1/33 bg-[#1f1f1f] border border-[#565656] px-2 py-5 rounded-4xl mt-2 flex flex-col items-center">
         <ul class="w-full space-y-5">
             <li>
                 <a href="#about" class="block text-center transition duration-300" title="Home">
