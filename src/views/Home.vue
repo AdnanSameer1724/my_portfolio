@@ -55,7 +55,44 @@
             </section>
 
             <section id="education" class="h-screen w-full snap-start flex justify-center items-center bg-[#1f1f1f]">
-            </section>
+  <div class="flex w-full max-w-7xl mx-auto">
+    <div class="w-24 mr-24 md:w-32 lg:w-48 flex-shrink-0">
+      <LeftComponent />
+    </div>
+    <main class="flex-1 flex items-center justify-center">
+      <section class="w-full max-w-4xl">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-12">
+          My <span class="text-[#28E98C]">Education</span>
+        </h1>
+        
+        <!-- Timeline Container -->
+        <div class="relative pl-8 sm:pl-12">
+          <!-- Vertical Line (Thinner and Gray) -->
+          <div class="absolute left-1 top-0 h-full w-px bg-[#999999]"></div>
+          
+          <!-- Timeline Items -->
+          <div 
+            v-for="(item, index) in educationItems" 
+            :key="index" 
+            class="relative mb-10"
+          >
+            <!-- Circle Marker (Gray) -->
+            <div class="absolute -left-12 sm:-left-12 top-1 h-3 w-3 rounded-full bg-[#999999]"></div>
+            <!-- Content -->
+            <div class="px-6 pb-7 rounded-lg">
+              <h3 class="text-xl font-semibold text-[#28E98C]">{{ item.degree }}</h3>
+              <p class="text-gray-400">{{ item.institution }}</p>
+              <p class="text-gray-400">{{ item.years }} | {{ item.grade }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="w-24 md:w-32 lg:w-48 flex-shrink-0">
+      <RightComponent />
+    </div>
+  </div>
+</section>
 
             <section id="experience" class="h-screen w-full snap-start flex justify-center items-center bg-[#1a1a1a]">
             </section>
@@ -76,6 +113,50 @@
 </template>
 
 <script setup>
+    import { ref, onMounted } from 'vue';
     import LeftComponent from '../components/LeftComponent.vue';
     import RightComponent from '../components/RightComponent.vue';
+
+    const educationItems = [
+        {
+            degree: "Bachelor's in Computer Science",
+            institution: "ABC University",
+            years: "2020 - 2024",
+            grade: "GPA: 8.5/10"
+        },
+        {
+            degree: "Higher Secondary (12th)",
+            institution: "XYZ College",
+            years: "2018 - 2020",
+            grade: "Grade: 92%"
+        },
+        {
+            degree: "Secondary School (10th)",
+            institution: "PQR School",
+            years: "2018",
+            grade: "Grade: 95%"
+        }
+    ];
+
+    const activeIndex = ref(0); // Tracks which circle is green
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = parseInt(entry.target.getAttribute('data-index'));
+          activeIndex.value = index;
+        }
+      });
+    },
+    { threshold: 0.5 } // Trigger when 50% of item is visible
+  );
+
+  // Observe all timeline items
+  document.querySelectorAll('.timeline-item').forEach((item, index) => {
+    item.setAttribute('data-index', index);
+    observer.observe(item);
+  });
+});
 </script>
